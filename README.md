@@ -110,6 +110,45 @@ pocha-mcp-server/
 └── tsconfig.json
 ```
 
+## Cursor Setup
+
+To use this MCP server in your Cursor IDE:
+
+1. Open your Cursor MCP configuration file:
+
+   ```bash
+   # macOS
+   ~/.cursor/mcp.json
+
+   # Windows
+   %APPDATA%/cursor/mcp.json
+
+   # Linux
+   ~/.cursor/mcp.json
+   ```
+
+2. Add the following configuration to the `mcpServers` object:
+
+   ```json
+   {
+     "mcpServers": {
+       "pocha-api-generator": {
+         "command": "/opt/homebrew/bin/npx",
+         "args": ["-y", "node", "/path/to/your/pocha-mcp-server/dist/index.js"]
+       }
+     }
+   }
+   ```
+
+   Replace `/path/to/your/pocha-mcp-server` with the actual path where you cloned this repository.
+
+3. Restart Cursor for the changes to take effect.
+
+4. The MCP server will now be available in Cursor, and you can use it to generate API functions by typing natural language commands like:
+   ```
+   Can you create a sample API for pocha project that fetches PochaInfo from "/pocha/${pochaid}" using "pocha-api-generator" mcp?
+   ```
+
 ## License
 
 MIT License
